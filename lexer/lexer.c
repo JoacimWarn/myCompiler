@@ -14,15 +14,19 @@ struct keywords{
 
 struct keywords* addWord(struct keywords* temp, char* word){
 	
+	printf("%s", word);
+	
 	if(temp == NULL){
 		
 		temp = (struct keywords*) malloc(sizeof(struct keywords));
 		temp->key = word;
 		temp->next = NULL;
 		
+		printf("storing word:%s\n", word);
+		
 	}
 	else if(!str_cmp(word, temp->key)){
-		
+		printf("ord finns redan");
 		//keyword already exist skip
 		return temp;
 		
@@ -37,36 +41,72 @@ struct keywords* addWord(struct keywords* temp, char* word){
 	
 }
 
-struct keywords* readFile(struct keywords* temp){
+void printKeywords(struct keywords* temp){
 	
-	int i;
+	if(temp != NULL){
+		
+		printf("%s\n", temp->key);
+		printKeywords(temp->next);
+		
+	}
+	
+}
+
+char* readFile(char* buffer){
+	
 	char word;
 	FILE* fp;
 	fp = fopen("test.txt", "r");
-	i = 0;
 	
 	while((word = getc(fp)) != EOF){
 		
-		
-		if(word == '\n' || word == ' '){
-			
-			
-		}
+		*buffer = word;
+		*buffer++;
 		
 	}
 	
 	fclose(fp);
+	return buffer;
 	
 }
 
 int main(){
 	
+	int i, j;
+	
+	char keys[BUFFER];
+	char word[BUFFER];
+	
 	struct keywords* root;
 	root = NULL;
 	
-	root = readFile(root);
+	readFile(keys);
 	
-	//printf("%s", root->key);
+	for(i = 0; i < BUFFER; i++){
+		
+		printf("%c", keys[i]);
+		word[i] = keys[i];
+		
+		if(keys[i] == '\n'){
+			
+			root = addWord(root, word);
+			
+			for(j = i; j < )
+			
+		}
+		
+	}
+	
+	//printf("%s", keys);
+	//root = addWord(root, keys);
+	
+	//root = readFile(root);
+	//root = addWord(root, "lol");
+	//root = addWord(root, "hej");
+	
+	
+	
+	//printKeywords(root);
 	
 	return 0;
 	
@@ -80,9 +120,14 @@ int main(){
 //return 0 if same word
 int str_cmp(char* s, char* t){
 	
-	while(*s++ == *t++){
+	while(*s == *t){
 		
-		if(*s == '\0' && *t == '\0' || (*s == '\n' && *t == '\n')) return 0;
+		printf("\n%c %c", *s, *t);
+		
+		if(*s == '\0' && *t == '\0') return 0;
+		
+		*s++;
+		*t++;
 		
 	}
 	
