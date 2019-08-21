@@ -16,9 +16,9 @@ void printParBuffer(char*, FILE*);
 
 void printBuffer(char* buffer, FILE* fpOut){
 	
-	if(isKeyWord(buffer) == 1)						fprintf(fpOut, "%s\t\tKEYWORD\n", buffer);
+	if(isKeyWord(buffer) == 1)			fprintf(fpOut, "%s\t\tKEYWORD\n", buffer);
 	else if(!isKeyWord(buffer) && isDigit(buffer))	fprintf(fpOut, "%s\t\t%s\n", buffer, NUMBER);
-	else if(*buffer != WSPACE)						fprintf(fpOut, "%s\t\t%s\n", buffer, IDENTIFIER);
+	else if(*buffer != WSPACE)			fprintf(fpOut, "%s\t\t%s\n", buffer, IDENTIFIER);
 	
 }
 
