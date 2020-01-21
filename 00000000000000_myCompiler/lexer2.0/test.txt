@@ -1,0 +1,17 @@
+int main()
+{
+int a,b,c;
+char x;
+x = '9';
+a = 1;
+b = 2;
+a = a + b;
+a = a - b;
+b = a * a;
+b = a / a;
+c = 765;
+printf("%d + %d", a + b);
+
+return 0;
+
+}

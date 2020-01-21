@@ -1,0 +1,13 @@
+int main(){
+char ord;
+int a, b,c;
+a = 1;
+b = 2;
+a = a + b;
+c = b + a;
+
+printf("a = %d, b = %d", a,b);
+
+return 0;
+
+}

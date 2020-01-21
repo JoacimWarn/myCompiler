@@ -1,0 +1,14 @@
+if		KEYWORD
+(		LPAR
+i		id
+>		GRTN
+3		DECIMAL
+)		RPAR
+{		LBRACKET
+a		id
+=		OP
+a		id
++		OP
+2		DECIMAL
+;		SEMI_COLON
+}		RBRACKET
